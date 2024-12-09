@@ -19,6 +19,7 @@ sudo apt update && sudo apt upgrade -y
 
 Install necessary dependencies:
 sudo apt install nginx git certbot python3-certbot-nginx ufw nodejs npm -y
+-
 
 Step 3: Firewall Setup with UFW (Uncomplicated Firewall)
 Allow SSH and HTTP/HTTPS traffic:
@@ -31,10 +32,12 @@ sudo ufw enable
 
 Verify UFW status to ensure correct rules are applied:
 sudo ufw status
+-
 
 Step 4: Clone Your Project to the Server
 Navigate to the /var/www directory:
 cd /var/www
+
 
 Clone your e-commerce project:
 sudo git clone https://github.com/yourusername/your-ecommerce-project.git
@@ -45,6 +48,7 @@ sudo npm install
 
 If your project has a frontend build step (React, Angular, etc.):
 npm run build
+-
 
 Step 5: Configure Nginx
 Create a new Nginx configuration file:
@@ -99,6 +103,7 @@ https://your-domain.com
 
 Test Certbot SSL renewal:
 sudo certbot renew --dry-run
+-
 
 Optional && Good:
 Step 7: Optimize Nginx and Server Security
@@ -117,6 +122,7 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 Set proper file permissions:
 sudo chown -R www-data:www-data /var/www/your-ecommerce-project
 sudo chmod -R 755 /var/www/your-ecommerce-project
+-
 
 Step 8: Install and Configure Process Manager (Optional)
 Install PM2 globally:
@@ -128,10 +134,12 @@ pm2 start app.js  # Adjust with your entry file
 Save PM2 configuration for auto-restarting the app:
 pm2 startup
 pm2 save
+-
 
 Step 9: Set Up Backups and Monitoring
 Set up regular backups for your project data (e.g., AWS S3).
 Install monitoring tools like Netdata or Prometheus to monitor server health.
+-
 
 Step 10: Test Your Setup
 Verify the website:
